@@ -1519,7 +1519,7 @@ MonoBehaviour:
       headTarget: {fileID: 244620452}
       positionWeight: 1
       rotationWeight: 1
-      headClampWeight: 0.6
+      headClampWeight: 0.1
       minHeadHeight: 0.8
       useAnimatedHeadHeightWeight: 0
       useAnimatedHeadHeightRange: 0.1
@@ -1527,15 +1527,15 @@ MonoBehaviour:
       pelvisTarget: {fileID: 0}
       pelvisPositionWeight: 0
       pelvisRotationWeight: 0
-      maintainPelvisPosition: 0.2
+      maintainPelvisPosition: 0
       chestGoal: {fileID: 0}
       chestGoalWeight: 0
       chestClampWeight: 0.5
       rotateChestByHands: 1
-      bodyPosStiffness: 0.55
-      bodyRotStiffness: 0.1
-      neckStiffness: 0.2
-      moveBodyBackWhenCrouching: 0.5
+      bodyPosStiffness: 0.7
+      bodyRotStiffness: 0.15
+      neckStiffness: 0.1
+      moveBodyBackWhenCrouching: 0.3
       maxRootAngle: 25
       rootHeadingOffset: 0
     leftArm:
@@ -2472,7 +2472,7 @@ Transform:
   m_GameObject: {fileID: 896663712}
   serializedVersion: 2
   m_LocalRotation: {x: -0.051745083, y: -0.030480081, z: -0.72451234, w: 0.68664056}
-  m_LocalPosition: {x: -0.16406882, y: 0.04387102, z: 0.0077612917}
+  m_LocalPosition: {x: -0.097, y: 0.0398, z: 0.035}
   m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children:
