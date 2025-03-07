@@ -328,6 +328,74 @@ MonoBehaviour:
   handLTarget: {fileID: 1435472630}
   offsetHead: {x: 0, y: -0.1, z: -0.1}
   animator: {fileID: 904020522}
+--- !u!1001 &347059909
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.532861
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.94404083
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 506133544f18367469cd84e92246a023,
+        type: 3}
+      propertyPath: m_Name
+      value: scifi_grenade_rig
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 506133544f18367469cd84e92246a023, type: 3}
 --- !u!1 &453431522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,7 +1702,7 @@ MonoBehaviour:
       maxRootAngleMoving: 10
       maxRootAngleStanding: 90
       stepLengthMlp: 1
-      footDistance: 0.3
+      footDistance: 0.18
       stepThreshold: 0.4
       angleThreshold: 60
       comAngleMlp: 1
@@ -3504,3 +3572,4 @@ SceneRoots:
   - {fileID: 1669849340}
   - {fileID: 78179179}
   - {fileID: 1449784712}
+  - {fileID: 347059909}
