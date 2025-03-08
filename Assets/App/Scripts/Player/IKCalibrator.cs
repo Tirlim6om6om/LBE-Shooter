@@ -6,6 +6,7 @@ using UnityEngine;
 public class IKCalibrator : MonoBehaviour
 {
     public float HandDistance { get; private set; }
+    public event Action<VRIKCalibrator.CalibrationData> OnIKCalibrate; 
 
     [Tooltip("VRIK")] 
     [SerializeField] private VRIK[] kinematics;
@@ -18,9 +19,6 @@ public class IKCalibrator : MonoBehaviour
     
     [Header("Коэффиценты")] 
     [SerializeField] private Vector3 offsetHead = new Vector3(0, -0.1f, -0.1f);
-
-    [Header("Доп компоненты")] 
-    [SerializeField] private Animator animator;
 
     private IKSolverVR[] _solverSave;
     private VRIKCalibrator.CalibrationData data;
@@ -35,16 +33,6 @@ public class IKCalibrator : MonoBehaviour
                        + kinematics[0].references.rightHand.localPosition.y) * 100;
         HandDistance = _distIkHand * Scale() * kinematics[0].solver.rightArm.armLengthMlp;
     }
-
-#if UNITY_EDITOR
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Calibrate();
-        }
-    }
-#endif
 
     public void Calibrate(VRIKCalibrator.CalibrationData dt = null)
     {
@@ -82,6 +70,8 @@ public class IKCalibrator : MonoBehaviour
             yield return null;
 
             CalibrateHands();
+            
+            OnIKCalibrate?.Invoke(data);
         }
     }
     
@@ -149,8 +139,8 @@ public class IKCalibrator : MonoBehaviour
         data = VRIKCalibrator.Calibrate(vrik, settings,
             GetTracker(headTarget),
             null,
-            GetTracker(handLTarget.parent),
-            GetTracker(handRTarget.parent));
+            GetTracker(handLTarget),
+            GetTracker(handRTarget));
     }
 
     /// <summary> Первоначальная калибровка рига с учетом настроек </summary>
@@ -161,8 +151,8 @@ public class IKCalibrator : MonoBehaviour
         VRIKCalibrator.Calibrate(vrik, calibrationData,
             GetTracker(headTarget),
             null,
-            GetTracker(handLTarget.parent),
-            GetTracker(handRTarget.parent));
+            GetTracker(handLTarget),
+            GetTracker(handRTarget));
     }
 
     private Transform GetTracker(Transform tracker)
