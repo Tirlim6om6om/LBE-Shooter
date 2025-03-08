@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using Zenject;
 
@@ -34,7 +31,8 @@ namespace Tirlim.Player
         {
             foreach (var target in targets)
             {
-                target.UpdatePos(xrOrigin.CameraYOffset);
+                target.UpdatePos(
+                    xrOrigin.CurrentTrackingOriginMode != TrackingOriginModeFlags.Floor ? xrOrigin.CameraYOffset : 0);
             }
         }
     }

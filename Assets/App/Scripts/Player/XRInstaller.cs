@@ -19,10 +19,12 @@ namespace Tirlim.Player
 
             Container.BindInstance(xrOriginInstance).AsSingle().NonLazy();
 
+#if UNITY_EDITOR
             if (useDeviceSimulator && (Application.isEditor || Application.platform != RuntimePlatform.Android))
             {
                 Container.InstantiatePrefabForComponent<XRDeviceSimulator>(this.deviceSimulator);
             }
+#endif
         }
     }
 }
