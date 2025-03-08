@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2938847395246548979}
   - component: {fileID: 842369959858292438}
   - component: {fileID: 8847227322263225875}
+  - component: {fileID: 5949595875419183197}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 8847227322263225875}
+  - {fileID: 5949595875419183197}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -79,4 +81,18 @@ MonoBehaviour:
   xrSetup: {fileID: 2129300530549809390, guid: 0c5d1bc8c8f23a744bb513ed3d913a7e, type: 3}
   useDeviceSimulator: 1
   deviceSimulator: {fileID: 6598815579406187026, guid: 18ddb545287c546e19cc77dc9fbb2189,
+    type: 3}
+--- !u!114 &5949595875419183197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274568543199501774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab03cd88b6544045ac38ed725ec639e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkManager: {fileID: 513003157918641252, guid: 40b9dcf1cc264d945a929284dad31999,
     type: 3}
