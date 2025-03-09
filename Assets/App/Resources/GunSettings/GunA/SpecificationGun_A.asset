@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SpecificationGun_A
   m_EditorClassIdentifier: 
   startAmmo: 30
-  timeReload: 2
-  shotInterval: 0.2
+  timeReload: 1
+  shotInterval: 0.1
   damage: 15
