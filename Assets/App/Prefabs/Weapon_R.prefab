@@ -73,6 +73,7 @@ Transform:
   - {fileID: 7951582839255761371}
   - {fileID: 1046607792388174088}
   - {fileID: 2550833678553341097}
+  - {fileID: 8490831017727833879}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9192357726422793410
@@ -207,7 +208,7 @@ GameObject:
   - component: {fileID: 6498981426056606517}
   - component: {fileID: 7135619120287709182}
   m_Layer: 0
-  m_Name: EffectorController
+  m_Name: ParticleEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +250,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3266691528128877500}
   serializedVersion: 8
-  lengthInSec: 0.2
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -5399,3 +5400,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2071954467771999089}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9187352070584836785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8490831017727833879}
+  - component: {fileID: 5141059025892550466}
+  m_Layer: 0
+  m_Name: ModelBulletEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8490831017727833879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187352070584836785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071067, y: 0.000000013038516, z: -0.000000033527613, w: 0.7071069}
+  m_LocalPosition: {x: 0, y: -0.7325, z: 0.0761}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2913926123660421699}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5141059025892550466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187352070584836785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0400a02e2671643ba361621f955f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 9062878837508400443, guid: bc8e8c49c5c38e64d8186be4fbf3cf84,
+    type: 3}
