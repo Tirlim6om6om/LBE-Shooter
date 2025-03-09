@@ -78,5 +78,15 @@ namespace Tirlim.Player
             OnChangeHealth?.Invoke(health);
             Debug.Log("Health = " + _health);
         }
+        
+#if UNITY_EDITOR
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                Dead();
+            }
+        }
+#endif
     }
 }

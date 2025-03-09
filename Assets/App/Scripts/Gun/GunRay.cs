@@ -1,4 +1,5 @@
 using System;
+using RootMotion.FinalIK;
 using Tirlim.Gun;
 using UnityEngine;
 using Zenject;
@@ -23,7 +24,7 @@ public class GunRay : MonoBehaviour, IShootNotifier
             if (damageable != null)
             {
                 damageable.SetDamage(damage);
-            }   
+            }
         }
     }
 

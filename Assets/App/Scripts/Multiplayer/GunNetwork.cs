@@ -9,7 +9,7 @@ public class GunNetwork : NetworkBehaviour
     
     private void Awake()
     {
-        gunController.enabled = false;
+        //gunController.enabled = false;
     }
 
     public override void OnStartAuthority()
