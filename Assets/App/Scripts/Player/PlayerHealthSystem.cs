@@ -76,7 +76,6 @@ namespace Tirlim.Player
         {
             _health = health;
             OnChangeHealth?.Invoke(health);
-            Debug.Log("Health = " + _health);
         }
         
 #if UNITY_EDITOR

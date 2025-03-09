@@ -1,27 +1,33 @@
 using System;
 using Mirror;
+using Tirlim.Match;
 using Tirlim.Player;
 using UnityEngine;
 using Zenject;
 
 namespace Tirlim.Multiplayer
 {
-    public class PlayerHealthSystemNetwork : NetworkBehaviour
+    public class PlayerEventSystemNetwork : NetworkBehaviour
     {
         private PlayerHealthSystem _healthSystem;
+        private PlayerTeam _playerTeam;
 
         [Inject]
-        public void Construct(PlayerHealthSystem playerHealthSystem)
+        public void Construct(PlayerHealthSystem playerHealthSystem, PlayerTeam playerTeam)
         {
             _healthSystem = playerHealthSystem;
             _healthSystem.OnSwitchState += OnSwitchState;
             _healthSystem.OnChangeHealth += OnChangeHealth;
+            
+            _playerTeam = playerTeam;
+            _playerTeam.OnSwitchTeam += OnSwitchTeam;
         }
 
         private void OnDestroy()
         {
             _healthSystem.OnSwitchState -= OnSwitchState;
             _healthSystem.OnChangeHealth -= OnChangeHealth;
+            _playerTeam.OnSwitchTeam -= OnSwitchTeam;
         }
 
         #region SwitchState sync
@@ -63,6 +69,8 @@ namespace Tirlim.Multiplayer
 
         private void OnChangeHealth(int health)
         {
+            if(!isOwned)
+                return;
             OnChangeHealthCmd(health);
         }
         
@@ -79,7 +87,25 @@ namespace Tirlim.Multiplayer
         }
 
         #endregion
-        
+
+        #region Team Sync
+
+        private void OnSwitchTeam(Team team)
+        {
+            if(!isServer)
+                return;
+            OnSwitchTeamRpc(team);
+        }
+
+        [ClientRpc]
+        private void OnSwitchTeamRpc(Team team)
+        {
+            if(isServer)
+                return;
+            _playerTeam.SetTeam(team);
+        }
+
+        #endregion
     }
 
 }

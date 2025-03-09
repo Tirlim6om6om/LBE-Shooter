@@ -7,11 +7,11 @@ namespace Tirlim.Multiplayer
 {
     public class NetworkInstaller : MonoInstaller
     {
-        [SerializeField] private NetworkManager networkManager;
+        [SerializeField] private CustomNetworkManager networkManager;
         
         public override void InstallBindings()
         {
-            NetworkManager netManagerInstance = Container.InstantiatePrefabForComponent<NetworkManager>(networkManager);
+            CustomNetworkManager netManagerInstance = Container.InstantiatePrefabForComponent<CustomNetworkManager>(networkManager);
             Container.BindInstance(netManagerInstance).AsSingle().NonLazy();
             Container.BindInstance(netManagerInstance.GetComponent<CustomNetworkDiscovery>()).AsSingle().NonLazy();
         }
