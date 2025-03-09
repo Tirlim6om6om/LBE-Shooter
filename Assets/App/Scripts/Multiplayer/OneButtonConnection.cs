@@ -80,8 +80,6 @@ public class OneButtonConnection : MonoBehaviour
             yield return null;
         }
         
-        Debug.LogError(_networkDiscovery.DiscoveredServers.Count);
-        
         if (!_serverFound & _networkDiscovery.DiscoveredServers.Count == 0)
         {
             if (statusText != null)
@@ -93,23 +91,16 @@ public class OneButtonConnection : MonoBehaviour
             if (statusText != null)
                 statusText.text = "Хост запущен!";
         }
-        else
-        {
-            //yield return ConnectToServer(_networkDiscovery.DiscoveredServers.GetEnumerator().Current.Value);
-        }
         _isConnecting = false;
     }
 
     // Метод должен иметь именно такую сигнатуру, чтобы корректно приниматься UnityEvent<ServerResponse>.
     private void OnDiscoveredServer(ServerResponse response)
     {
-        Debug.LogError("TEST");
-        // Если сервер уже найден, последующие ответы игнорируются
         if (_serverFound)
             return;
 
         _serverFound = true;
-        // Для избегания зависания (см. [2]) запускаем задержку в один кадр
         StartCoroutine(ConnectToServer(response));
     }
     

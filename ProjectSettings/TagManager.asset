@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enivorment
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Ragdoll
+  - PlayerTrigger
   - 
   - 
   - 
