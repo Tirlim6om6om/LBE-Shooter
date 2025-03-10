@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
@@ -19,6 +20,9 @@ namespace Tirlim.Match
     
     public class TeamSystem : MonoBehaviour
     {
+        public event Action<PlayerInfo, Team> OnPlayerJoinTeam; 
+        public event Action<PlayerInfo, Team> OnPlayerOutTeam; 
+
         private CustomNetworkManager _networkManager;
         private List<PlayerInfo> _playersTeamA = new List<PlayerInfo>();
         private List<PlayerInfo> _playersTeamB = new List<PlayerInfo>();
@@ -33,17 +37,20 @@ namespace Tirlim.Match
         public void AddPlayerToTeam(NetworkConnectionToClient conn)
         {
             PlayerTeam player = conn.identity.gameObject.GetComponent<PlayerTeam>();
+            PlayerInfo playerInfo = new PlayerInfo(conn, player);
             
             if (_playersTeamA.Count <= _playersTeamB.Count)
             {
-                _playersTeamA.Add(new PlayerInfo(conn, player));
+                _playersTeamA.Add(playerInfo);
                 player.SetTeam(Team.teamA);
+                OnPlayerJoinTeam?.Invoke(playerInfo, Team.teamA);
                 Debug.Log("Add " + conn.connectionId + " to A");
             }
             else
             {
                 _playersTeamB.Add(new PlayerInfo(conn, player));
                 player.SetTeam(Team.teamB);
+                OnPlayerJoinTeam?.Invoke(playerInfo, Team.teamB);
                 Debug.Log("Add " + conn.connectionId + " to B");
             }
         }
