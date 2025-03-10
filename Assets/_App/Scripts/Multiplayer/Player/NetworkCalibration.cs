@@ -8,6 +8,9 @@ namespace Tirlim.Multiplayer
     {
         [SerializeField] private IKCalibrator calibrator;
 
+        [SyncVar] private bool _calibrated;
+        [SyncVar] private CalibrateData _data;
+
         public override void OnStartAuthority()
         {
             calibrator.OnIKCalibrate += OnCalibrated;
@@ -17,6 +20,14 @@ namespace Tirlim.Multiplayer
         public override void OnStopAuthority()
         {
             calibrator.OnIKCalibrate -= OnCalibrated;
+        }
+
+        public override void OnStartClient()
+        {
+            if (!isOwned & _calibrated)
+            {
+                calibrator.Calibrate(DataUnconvertor(_data));
+            }
         }
 
 #if UNITY_EDITOR
@@ -34,7 +45,9 @@ namespace Tirlim.Multiplayer
         
         private void OnCalibrated(VRIKCalibrator.CalibrationData data)
         {
-            CalibrateCmd(DataConverter(data));
+            _data = DataConverter(data);
+            _calibrated = true;
+            CalibrateCmd(_data);
         }
 
         [Command]
