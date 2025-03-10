@@ -21,20 +21,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Weapon_Rifle_A
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: fe6525ffeed1acd4d8557676004e38bc,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _EMISSION
-  - _METALLICSPECGLOSSMAP
-  - _NORMALMAP
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -84,12 +81,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 2b6e53757cdaea64c8cb8f8d88381ab5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetalicMap:
+        m_Texture: {fileID: 2800000, guid: 475e50ad7ef598741bd28265c50dee35, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: 475e50ad7ef598741bd28265c50dee35, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalnessMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 1952967d289bf04498c1dc74a5a8fd66, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -137,6 +142,7 @@ Material:
     - _DiffuseFactor: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _Emission: 0
     - _EmissionFactor: 2
     - _EmissiveFactor: 1
     - _EnvironmentReflections: 1
@@ -149,6 +155,7 @@ Material:
     - _OcclusionStrength: 1
     - _Outline: 0
     - _Parallax: 0.02
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -175,4 +182,5 @@ Material:
     - _MaskedColorC: {r: 1, g: 0.062068876, b: 0, a: 1}
     - _OutlineColor: {r: 0.44117644, g: 0.8843815, b: 1, a: 0.39215687}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _TeamColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

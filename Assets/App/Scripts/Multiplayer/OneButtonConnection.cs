@@ -14,13 +14,13 @@ public class OneButtonConnection : MonoBehaviour
     // Таймаут поиска сервера (в секундах)
     [SerializeField] private float connectionTimeout = 2.0f;
 
-    private NetworkManager _networkManager;
+    private CustomNetworkManager _networkManager;
     private CustomNetworkDiscovery _networkDiscovery;
     private bool _isConnecting = false;
     private bool _serverFound = false;
 
     [Inject]
-    public void Construct(NetworkManager networkManager, CustomNetworkDiscovery networkDiscovery)
+    public void Construct(CustomNetworkManager networkManager, CustomNetworkDiscovery networkDiscovery)
     {
         _networkManager = networkManager;
         _networkDiscovery = networkDiscovery;

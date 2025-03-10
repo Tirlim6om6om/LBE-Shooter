@@ -1,13 +1,16 @@
+using Tirlim.Match;
 using Tirlim.Player;
 using UnityEngine;
 
 public class SaveZone : MonoBehaviour
 {
+    [SerializeField] private Team team;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out PlayerTrigger playerTrigger))
         {
-            playerTrigger.PlayerHealthSystem.SetImmortal(true);
+            playerTrigger.SetImmortal(true, team);
         }
     }
     
@@ -15,7 +18,7 @@ public class SaveZone : MonoBehaviour
     {
         if (other.TryGetComponent(out PlayerTrigger playerTrigger))
         {
-            playerTrigger.PlayerHealthSystem.SetImmortal(false);
+            playerTrigger.SetImmortal(false, team);
         }
     }
 }

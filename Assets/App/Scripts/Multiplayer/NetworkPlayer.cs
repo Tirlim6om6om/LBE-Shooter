@@ -12,7 +12,7 @@ namespace Tirlim.Multiplayer
         
         private void Awake()
         {
-            ProjectContext.Instance.Container.InjectGameObject(gameObject);
+            ProjectContext.Instance.Container.InjectGameObject(gameObject);//TODO УБРАТЬ
             ikTargetsTracking.enabled = false;
             calibrateController.enabled = false;
         }
