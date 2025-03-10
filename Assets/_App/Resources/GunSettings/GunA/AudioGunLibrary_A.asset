@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bfd85534c04c9a8ca21d38b1381bfe, type: 3}
   m_Name: AudioGunLibrary_A
   m_EditorClassIdentifier: 
-  shot: {fileID: 0}
-  reload: {fileID: 0}
-  unload: {fileID: 0}
+  shot: {fileID: 8300000, guid: 717633b3e29fc6a4eaa649b2ad760f96, type: 3}
+  reload: {fileID: 8300000, guid: ca26dcb38f338a8438ccce65fa06ab08, type: 3}
+  unload: {fileID: 8300000, guid: 62bf1b59222e77d45951d25d9196b028, type: 3}

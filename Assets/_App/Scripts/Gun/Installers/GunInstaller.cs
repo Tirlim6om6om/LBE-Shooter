@@ -14,6 +14,7 @@ namespace Tirlim.Gun
             Container.Bind<IShootNotifier>().FromComponentsInHierarchy().AsTransient();
             Container.Bind<IReloadedNotifier>().FromComponentsInHierarchy().AsTransient();
             Container.Bind<IUnloadNotifier>().FromComponentsInHierarchy().AsTransient();
+            Container.Bind<IStartReloadNotifier>().FromComponentsInHierarchy().AsTransient();
             Container.BindInstance(gun).AsSingle();
             Container.BindInstance(gunEventSystem).AsSingle();
             
