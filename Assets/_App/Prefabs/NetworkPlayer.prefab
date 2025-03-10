@@ -308,6 +308,7 @@ MonoBehaviour:
   syncInterval: 0
   ikTargetsTracking: {fileID: 1382184864605797030}
   calibrateController: {fileID: 2173881796333792110}
+  playerMover: {fileID: 9036234572178433057}
 --- !u!114 &4657498744400055174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,12 +358,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433727762338801433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ea4c5e6e9c92124682e6c52634a67e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5467688970384082019}
+  player: {fileID: 6477986084374956742}
   head: {fileID: 315350744596867380}
   speed: 0.5
   moveAction: {fileID: -8441597079090964725, guid: c348712bda248c246b8c49b3db54643f,
@@ -2729,6 +2730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6477986084374956742}
   - component: {fileID: 1382184864605797030}
+  - component: {fileID: 179173159309765696}
   m_Layer: 0
   m_Name: Targets
   m_TagString: Untagged
@@ -2800,6 +2802,40 @@ MonoBehaviour:
     activeStabilizeRot: 0
     interpolationSpeed: 0.9
     rotSense: 2
+--- !u!114 &179173159309765696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7457390895195000667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 6477986084374956742}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChangeCorrectionMultiplier: 2
+  useFixedUpdate: 0
+  rotationSensitivity: 0.01
+  positionPrecision: 0.01
+  scalePrecision: 0.01
 --- !u!1 &7507906050096583608
 GameObject:
   m_ObjectHideFlags: 0
