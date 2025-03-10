@@ -55,7 +55,7 @@ namespace Tirlim.Player
 
         public void UpdatePos(float offsetY = 0)
         {
-            targetParent.localPosition = CalculatePos(targetParent.position, 
+            targetParent.localPosition = CalculatePos(targetParent.localPosition,
                 positionReference.action.ReadValue<Vector3>() + new Vector3(0, offsetY, 0));
             targetParent.localRotation = CalculateRot(targetParent.rotation,
                 rotationReference.action.ReadValue<Quaternion>());
@@ -77,11 +77,16 @@ namespace Tirlim.Player
             if (!activeStabilizeMove)
                 return targetOffset;
             
-            return Vector3.Lerp(targetParent.localPosition, targetOffset,  interpolationSpeed * 20 * Time.deltaTime);
+            return Vector3.Lerp(origin, targetOffset,  interpolationSpeed * 20 * Time.deltaTime);
         }
 
         private Quaternion CalculateRot(Quaternion origin, Quaternion target)
         {
+            if (!IsValidQuaternion(origin) || !IsValidQuaternion(target))
+            {
+                return origin;
+            }
+            
             Quaternion targetOffset = target * Quaternion.Euler(offsetRot);
             
             if (!activeStabilizeRot)
@@ -91,6 +96,13 @@ namespace Tirlim.Player
             float dif = 360 - angle;
             
             return Quaternion.Lerp(origin, targetOffset, interpolationSpeed * dif / rotSense);
+        }
+        
+        private bool IsValidQuaternion(Quaternion q)
+        {
+            bool isNaN = float.IsNaN(q.x + q.y + q.z + q.w);
+            bool isZero = q.x == 0 && q.y == 0 && q.z == 0 && q.w == 0;
+            return !(isNaN || isZero);
         }
     }
 }
