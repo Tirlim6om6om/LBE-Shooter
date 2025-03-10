@@ -8,20 +8,21 @@ public class GunRay : MonoBehaviour, IShootNotifier
 {
     [SerializeField] private LayerMask layerMask;
     private int damage;
-
+    private Vector3 _halfExtents;
+    
     [Inject]
     public void Construct(SpecificationGun specificationGun)
     {
         damage = specificationGun.Damage;
+        _halfExtents = specificationGun.HalfExtents;
     }
     
     public void OnShootMessage()
     {
-        if (Physics.Raycast(transform.position, transform.forward, 
-                out RaycastHit hit, 1000, layerMask))
+        if (Physics.BoxCast(transform.position, _halfExtents, transform.forward, 
+                out RaycastHit hit, transform.rotation, 1000, layerMask))
         {
-            IDamageable damageable = hit.collider.GetComponentInParent<IDamageable>();
-            if (damageable != null)
+            if (hit.collider.TryGetComponent(out IDamageable damageable))
             {
                 damageable.SetDamage(damage);
             }

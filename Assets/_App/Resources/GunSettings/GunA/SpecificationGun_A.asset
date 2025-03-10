@@ -16,3 +16,4 @@ MonoBehaviour:
   timeReload: 1
   shotInterval: 0.1
   damage: 15
+  halfExtents: {x: 0.1, y: 0.1, z: 0.1}

@@ -8,6 +8,7 @@ namespace Tirlim.Multiplayer
 {
     public class PlayerDamageable : NetworkBehaviour, IDamageable
     {
+        [SerializeField] private float multiply = 1;
         private PlayerHealthSystem _healthSystem;
 
         [Inject]
@@ -20,7 +21,7 @@ namespace Tirlim.Multiplayer
         {
             if (isOwned)
             {
-                _healthSystem.SetDamage(damage);
+                _healthSystem.SetDamage((int)(damage * multiply));
             }
         }
     }
